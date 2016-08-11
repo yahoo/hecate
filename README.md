@@ -93,7 +93,7 @@ $ ./distribute/bin/hecate -i examples/video.mp4 --generate_jpg --njpg 1
 ```
 You will see the generated thumbnail image under the output directory (set as `output` by default; you can change this using the option `--out_dir YOUR_DIRECTORY`). On our dev machine we get this thumbnail image:
 
-![alt text](https://git.corp.yahoo.com/yalesong/hecate/blob/master/examples/video_00.jpg "Hecate Thumbnail Image")
+![alt text](https://github.com/yahoo/hecate/blob/master/examples/video_00.jpg "Hecate Thumbnail Image")
 
 In the above example, we generated only one thumbnail image. Are you not satisfied with the thumbnail image? Hecate can generate any number of thunbmail images! Let's generate five thumbnail images.
 ```
@@ -109,7 +109,7 @@ $ ./distribute/bin/hecate -i examples/video.mp4 --generate_gif --ngif 1
 ```
 On our dev machine, we get this animated GIF:
 
-![alt text](https://git.corp.yahoo.com/yalesong/hecate/blob/master/examples/video_00.gif "Hecate Animated GIF")
+![alt text](https://github.com/yahoo/hecate/blob/master/examples/video_00.gif "Hecate Animated GIF")
 
 You can, of course, create more than just one GIF by setting the paramter `--ngif N` with an appropriate number N. When there are multiple GIFs, you can also generate a "summary GIF" by concatenating them, using this command:
 ```
@@ -127,7 +127,7 @@ Last but not least, Hecate can summarize a video! Run the following command to c
 $ hecate -i video.mp4 --generate_mov --lmov 15
 ```
 We included the video summary generated on our dev machine here: 
-[https://git.corp.yahoo.com/yalesong/hecate/blob/master/examples/video_sum.mp4](https://git.corp.yahoo.com/yalesong/hecate/blob/master/examples/video_sum.mp4)
+[https://github.com/yahoo/hecate/blob/master/examples/video_sum.mp4](https://github.com/yahoo/hecate/blob/master/examples/video_sum.mp4)
 
 
 ## Contributor
