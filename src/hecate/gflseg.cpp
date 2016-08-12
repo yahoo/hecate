@@ -1,6 +1,11 @@
 /*
  * GFLSEG Group Fused LASSO Change Point Detection solver
  *
+ * Implementation is based on:
+ *   Kevin Bleakley and Jean-Philippe Vert.
+ *     "The group fused lasso for multiple change-point detection."
+ *   arXiv preprint arXiv:1106.4199 (2011).
+ *
  * Developer: Yale Song (yalesong@yahoo-inc.com)
  * Copyright 2016 Yahoo Inc.
  * Licensed under the terms of the Apache 2.0 License. See LICENSE file in the project root for terms.
