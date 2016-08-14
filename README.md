@@ -31,7 +31,6 @@ $ ./distribute/bin/hecate
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
  HECATE Copyright 2016 Yahoo Inc.
- * Licensed under the terms of the Apache 2.0 License. See LICENSE file in the project root for terms.
    Developed by : Yale Song (yalesong@yahoo-inc.com)
    Built on  : 11:46:03 Aug 11 2016
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
