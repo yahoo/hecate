@@ -188,8 +188,7 @@ inline void hecate_copyright()
 {
   printf("\n");
   printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-  printf(" HECATE Copyright 2016 Yahoo Inc.
- * Licensed under the terms of the Apache 2.0 License. See LICENSE file in the project root for terms.\n");
+  printf(" HECATE Copyright 2016 Yahoo Inc.\n");
   printf("   Developed by : Yale Song (yalesong@yahoo-inc.com)\n");
   printf("   Built on  : %s %s\n", __TIME__, __DATE__ );
   printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
