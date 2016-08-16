@@ -104,7 +104,7 @@ void detect_thumbnail_frames( hecate_params& opt, hecate::video_metadata& meta,
     //vector<int> Kset;
     //for(int i=km_k; i<=min(nfrm_valid,(int)(2*km_k)); i++)
     //  Kset.push_back( i );
-    //km_k = perform_kmeans_gs( km_data, km_lbl, km_ctr, Kset, 3, 500 );
+    //km_k = hecate::perform_kmeans_gs( km_data, km_lbl, km_ctr, Kset, 3, 500 );
     
     // measure cluster size
     vector<int> clust_sz(km_k,0);
