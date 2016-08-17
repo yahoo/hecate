@@ -36,7 +36,7 @@ namespace hecate {
     int idx0 = filename.rfind("/");
     int idx1 = filename.rfind(".");
     
-    if( idx1 == std::string::npos )
+    if( idx1 == (int) std::string::npos )
       idx1 = filename.length();
     
     FileParts fp;
