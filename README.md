@@ -1,7 +1,9 @@
 # HECATE
 Hecate is a video processing library that auto-magically generates thumbnails, animated GIFs, and video summaries from videos. This library is developed and maintained by Yahoo Research, New York.
 
-The technology behind the library is based on our research work. If you find this library useful in your work, we ask you to cite our research paper:
+The source code is Copyright 2016 Yahoo Inc. and is licensed under the terms of the Apache 2.0 License. See the [LICENSE](https://github.com/yahoo/hecate/blob/master/LICENSE) in the project root file for terms.
+
+The technology behind this library is based on our research work. If you find this library useful in your work, we ask you to cite our research paper:
 ```
 "To Click or Not To Click: Automatic Selection of Beautiful Thumbnails from Videos."
 Yale Song, Miriam Redi, Jordi Vallmitjana, Alejandro Jaimes, 
