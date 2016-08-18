@@ -189,11 +189,12 @@ inline void hecate_parse_params(int argc, char** argv, hecate_params& opt)
 inline void hecate_copyright()
 {
   printf("\n");
-  printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+  printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
   printf(" HECATE Copyright 2016 Yahoo Inc.\n");
+  printf("   Licensed under the terms of the Apache 2.0 License.\n");
   printf("   Developed by : Yale Song (yalesong@yahoo-inc.com)\n");
   printf("   Built on  : %s %s\n", __TIME__, __DATE__ );
-  printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+  printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 }
 
 inline void hecate_usage()
