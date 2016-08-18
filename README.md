@@ -31,11 +31,12 @@ Once you've successfully compiled hecate, it will generate a binary executable u
 ```
 $ ./distribute/bin/hecate
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
  HECATE Copyright 2016 Yahoo Inc.
+   Licensed under the terms of the Apache 2.0 License.
    Developed by : Yale Song (yalesong@yahoo-inc.com)
    Built on  : 11:46:03 Aug 11 2016
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 USAGE: hecate -i infile [options]
 
   -i  --in_video      (string)    Input video file
