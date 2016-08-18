@@ -1,9 +1,11 @@
 /*
  * HECTATE Video Processing Library - Highlight
  *
- * Developer: Yale Song (yalesong@yahoo-inc.com)
  * Copyright 2016 Yahoo Inc.
- * Licensed under the terms of the Apache 2.0 License. See LICENSE file in the project root for terms.
+ * Licensed under the terms of the Apache 2.0 License.
+ * See LICENSE file in the project root for terms.
+ *
+ * Developer: Yale Song (yalesong@yahoo-inc.com)
  */
 
 #include "hecate/hecate.hpp"
