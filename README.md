@@ -84,7 +84,7 @@ Below is the results we obtained on our dev machine (OS X 10.10 with OpenCV v3.1
 shots: [0:81],[84:93],[96:102],[108:270],[272:418],...,[9966:10131],[10135:10164]
 keyframes: [52,85,98,128,165,208,242,259,265,273,...,10127,10141]
 ```
-The units are frame indices (zero-based). You will notice that shot ranges are non-continuous; there are "gaps" between shots, e.g., three frames are missing between the first two shots [0:81] and [84:93]. This is normal and intentional: Hecate "invalidates" low-quality frames that aren't ideal in producing nicely looking thumbnails, animated GIFs, and video summaries. We refer to our CIKM 2016 paper for the rational behind our reason to invalidate low-quality frames.
+The units are frame indices (zero-based). You will notice that shot ranges are non-continuous; there are "gaps" between shots, e.g., two frames are missing between the first two shots [0:81] and [84:93]. This is normal and intentional: Hecate discards low-quality frames that aren't ideal in producing nicely looking thumbnails, animated GIFs, and video summaries. We refer to our CIKM 2016 paper for the rational behind our reason to invalidate low-quality frames.
 
 ### Thumbnail generation
 Hecate uses computer vision to determine frames that are most "suitable" as video thumbnails. By suitable, we mean a frame that is the most relevant to the video content and that is the most beautiful in terms of computational aesthetics; technical details are explained in our CIKM 2016 paper.
