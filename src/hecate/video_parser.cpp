@@ -119,10 +119,10 @@ int VideoParser::read_video( const string& in_video, int step_sz,
   
   // need to store _step_sz for computing min_shot_len in sbg_gflseg()
   _step_sz = step_sz;
-  if( step_sz>5 ) {
-    _step_sz = 5;
-    fprintf( stderr, "VideoParser: The maximum step size is 5"
-            "(provided is %d)\n", step_sz );
+  if( step_sz>10 ) {
+    _step_sz = 10;
+    fprintf( stderr, "VideoParser: The maximum step size is 10"
+            " (provided is %d)\n", step_sz );
   }
   // if video is too long, and ignore_rest is false, adjust step size
   if( !ignore_rest && max_nfrms > 0 && _nfrm_total > max_nfrms ) {
@@ -141,25 +141,23 @@ int VideoParser::read_video( const string& in_video, int step_sz,
   while( true )
   {
     Mat frm;
-    for(int i=0; i<_step_sz; i++) {
-      vr >> frm;
-      if( frm.empty() ) break;
-      _nfrm_total++;
-    }
+    vr >> frm;
     if( frm.empty() ) break;
     
-    if( rsz_ratio>0 )
-      resize( frm, frm, Size(), rsz_ratio, rsz_ratio, CV_INTER_LINEAR );
-    
-    _v_frm_rgb.push_back( frm );
-    
-    // if video is too long, and ignore_rest is true, cut the rest
-    if( ignore_rest && _nfrm_total>=max_nfrms ) {
-      if( _debug )
-        printf("VideoParser: video too long, "
-               "cutting at (%d)-th frame\n", _nfrm_total);
-      break;
+    if( _nfrm_total % _step_sz == 0 ) {
+      if( rsz_ratio>0 )
+        resize( frm, frm, Size(), rsz_ratio, rsz_ratio, CV_INTER_LINEAR );
+      _v_frm_rgb.push_back( frm );
+      
+      // if video is too long, and ignore_rest is true, cut the rest
+      if( ignore_rest && _nfrm_total>=max_nfrms ) {
+        if( _debug )
+          printf("VideoParser: video too long, "
+                 "cutting at (%d)-th frame\n", _nfrm_total);
+        break;
+      }
     }
+    _nfrm_total++;
   }
   vr.release();
   
