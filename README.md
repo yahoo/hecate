@@ -126,7 +126,7 @@ $ ./distribute/bin/hecate -i examples/video.mp4 --generate_gifall
 ### Video summary generation
 Last but not least, Hecate can summarize a video! Run the following command to create a video summary of length 15 seconds.
 ```
-$ ./distribute/bin/hecate -i video.mp4 --generate_mov --lmov 15
+$ ./distribute/bin/hecate -i examples/video.mp4 --generate_mov --lmov 15
 ```
 We included the video summary generated on our dev machine here: 
 [https://github.com/yahoo/hecate/blob/master/examples/video_sum.mp4](https://github.com/yahoo/hecate/blob/master/examples/video_sum.mp4)
