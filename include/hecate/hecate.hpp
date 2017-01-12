@@ -45,7 +45,7 @@
 
 // OpenCV library
 #include <opencv2/objdetect/objdetect.hpp>
-#include <opencv2/ml.hpp>
+#include <opencv2/ml/ml.hpp>
 
 using namespace std;
 
