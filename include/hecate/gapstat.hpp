@@ -76,13 +76,20 @@ namespace hecate {
     }
   }
   
+  //fix error when there is only 1 data point: http://docs.opencv.org/2.4/modules/core/doc/clustering.html
   inline void perform_kmeans(const Mat& km_data, Mat& km_lbl, Mat& km_ctr, int ncluster,
                              int km_attempts=1, int km_max_cnt=1000, double km_eps=0.0001)
   {
-    int km_k = min(ncluster, km_data.rows);
-    TermCriteria km_opt = TermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS, km_max_cnt, km_eps);
-    kmeans( km_data, km_k, km_lbl, km_opt, km_attempts, KMEANS_PP_CENTERS, km_ctr );
-  }
+      if(km_data.rows==1){
+          km_lbl = Mat::zeros(1,1, km_lbl.type());
+          cv::reduce( km_data, km_ctr, 0, CV_REDUCE_AVG );
+      }
+      else{
+        int km_k = min(ncluster, km_data.rows);
+        TermCriteria km_opt = TermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS, km_max_cnt, km_eps);
+        kmeans( km_data, km_k, km_lbl, km_opt, km_attempts, KMEANS_PP_CENTERS, km_ctr );
+      }
+}
   
   inline int perform_kmeans_gs( const Mat& km_data, Mat& km_lbl, Mat& km_ctr,
                                vector<int> K, int B=10, int N=500 )
