@@ -55,6 +55,16 @@ namespace hecate {
     return dir;
   };
   
+  static inline std::string escape_space( std::string s ) {
+    std::string out;
+    for( size_t i=0; i<s.size(); i++) {
+      if( s[i] == ' ' )
+        out += '\\';
+      out += s[i];
+    }
+    return out;
+  }
+  
   static inline std::string get_filename( std::string filepath ) {
     hecate::FileParts fp = hecate::fileparts( filepath );
     std::string filename = fp.name;

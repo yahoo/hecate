@@ -40,6 +40,8 @@ namespace hecate {
                                        string duration,
                                        int out_width_px)
   {
+    in_file = escape_space(in_file);
+    
     char filter[BUF_S];
     sprintf( filter, "'scale=%d:trunc(ow/a/2)*2'", out_width_px);
     
@@ -67,6 +69,8 @@ namespace hecate {
                                        double video_duration_sec,
                                        double video_fps)
   {
+    in_file = escape_space(in_file);
+    
     const double afade_sec = (double)2*_lfade/video_fps;
     const double afade_msec = (int)10000*(afade_sec-floor(afade_sec));
     
@@ -92,6 +96,8 @@ namespace hecate {
                                        int video_duration,
                                        bool out_only=false)
   {
+    in_file = escape_space(in_file);
+    
     char filter[BUF_S];
     if( out_only ) {
       sprintf( filter, "'fade=out:%d:%d'",
@@ -117,6 +123,8 @@ namespace hecate {
                                       int out_fps,
                                       int out_width_px)
   {
+    in_file = escape_space(in_file);
+    
     string out_dir = hecate::get_dir( std::string(out_file) );
     
     char filter[BUF_S];
