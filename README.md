@@ -132,6 +132,6 @@ We included the video summary generated on our dev machine here:
 [https://github.com/yahoo/hecate/blob/master/examples/video_sum.mp4](https://github.com/yahoo/hecate/blob/master/examples/video_sum.mp4)
 
 
-## Contributor
+## Developer
 
 Yale Song: [github](https://github.com/yalesong), [website](http://people.csail.mit.edu/yalesong)
