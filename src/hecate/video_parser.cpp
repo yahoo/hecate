@@ -395,10 +395,16 @@ void VideoParser::sbd_heuristic(vector<double> v_diff, vector<int>& jump,
   hecate::sort( v_diff, v_srt_val, v_srt_idx );
   for(int i=(int)v_srt_val.size()-1; i>=0; i--) {
     bool add = true;
-    for(size_t j=0; j<jump.size(); j++) {
-      int len = abs(jump[j]-v_srt_val[i]) + 1;
-      if( len<min_shot_len ) {
-        add = false; break;
+    if (((unsigned) v_srt_idx[i] + 1 < min_shot_len) ||
+        ((unsigned) v_diff.size() - v_srt_idx[i] < min_shot_len)) {
+      add = false;
+    } else {
+      for (size_t j = 0; j < jump.size(); j++) {
+        int len = abs(jump[j] - (int) v_srt_idx[i]) + 1;
+        if (len < min_shot_len) {
+          add = false;
+          break;
+        }
       }
     }
     if( add ) {
