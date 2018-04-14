@@ -46,7 +46,7 @@ namespace hecate {
     sprintf( filter, "'scale=%d:trunc(ow/a/2)*2'", out_width_px);
     
     char cmd[BUF_L];
-    sprintf( cmd, "%s -ss %s -t %s -i %s -vf %s %s %s",
+    sprintf( cmd, "%s -ss %s -t %s -i %s -strict -2 -vf %s %s %s",
             _ffmpeg.c_str(), start_time.c_str(), duration.c_str(),
             in_file.c_str(), filter, out_file.c_str(), _ffmarg.c_str());
     
