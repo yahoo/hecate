@@ -29,7 +29,7 @@ void detect_thumbnail_frames( hecate_params& opt, hecate::video_metadata& meta,
                               vector<int>& v_thumb_idx)
 {
   v_thumb_idx.clear();
-  
+
   const int minK = 5;   // min #clusters
   const int maxK = 30;  // max #clusters
   const int nfrm = meta.nframes;
@@ -73,7 +73,7 @@ void detect_thumbnail_frames( hecate_params& opt, hecate::video_metadata& meta,
       v_shot_len.push_back(max_subshot_len);
       v_keyfrm_idx.push_back(v_shot_range[i].v_range[max_subshot_id].v_idx[0]);
     }
-    
+
     // Include keyframes sorted by shot length
     vector<size_t> v_srt_idx;  // contains sorted indices
     vector<int> v_srt_val;     // contains sorted values
@@ -90,34 +90,34 @@ void detect_thumbnail_frames( hecate_params& opt, hecate::video_metadata& meta,
         v_valid_frm_shotlen.push_back( v_shot_range[i].v_range[j].length() );
       }
     }
-    
+
     Mat km_data(nfrm_valid, X.cols, X.type());
     for(size_t i=0; i<v_valid_frm_idx.size(); i++) {
       X.row(v_valid_frm_idx[i]).copyTo( km_data.row(i) );
     }
-    
+
     // Perform k-means (repeat 5 times)
     Mat km_lbl; // integer row vector; stores cluster IDs for every sample.
     Mat km_ctr; // one row per each cluster center.
     int km_k = min(maxK, min(nfrm_valid, max(minK, opt.njpg)));
     hecate::perform_kmeans( km_data, km_lbl, km_ctr, km_k, 5 );
-    
+
     // For k-means with gap statistics
     //vector<int> Kset;
     //for(int i=km_k; i<=min(nfrm_valid,(int)(2*km_k)); i++)
     //  Kset.push_back( i );
     //km_k = hecate::perform_kmeans_gs( km_data, km_lbl, km_ctr, Kset, 3, 500 );
-    
+
     // measure cluster size
     vector<int> clust_sz(km_k,0);
     for(int i=0; i<km_lbl.rows; i++)
       clust_sz[ km_lbl.at<int>(i) ] += v_valid_frm_shotlen[i];
-    
+
     // sort wrt cluster size in an ascending order
     vector<size_t> v_srt_idx; // contains cluster id
     vector<int> v_srt_val;    // contains cluster size
     hecate::sort( clust_sz, v_srt_val, v_srt_idx );
-    
+
     // obtain thumbnails -- the most still frame per cluster
     for(int i=0; i<km_k; i++) {
       int diff_min_idx = -1;
@@ -135,7 +135,7 @@ void detect_thumbnail_frames( hecate_params& opt, hecate::video_metadata& meta,
       v_thumb_idx.push_back( v_valid_frm_idx[diff_min_idx] );
     }
   }
-  
+
   for(size_t i=0; i<v_thumb_idx.size(); i++)
     v_thumb_idx[i] *= opt.step_sz;
 }
@@ -152,16 +152,16 @@ void generate_thumbnails( hecate_params& opt, vector<int>& v_thumb_idx )
   char strbuf[256];
   int njpg_cnt = 0;
   int frm_idx = 0;
-  
+
   string filename = hecate::get_filename( std::string(opt.in_video) );
-  
+
   VideoCapture vr( opt.in_video );
   double rsz_ratio = (double)(2+opt.jpg_width_px)/vr.get(CV_CAP_PROP_FRAME_WIDTH);
   while( njpg_cnt < (int)v_thumb_idx.size() )
   {
     Mat frm; vr>>frm;
     if( frm.empty() ) break;
-    
+
     // Check if the current frame is in the selected thumbnail list
     int rank = -1;
     for( size_t i=0; i<v_thumb_idx.size(); i++ ) {
@@ -170,7 +170,7 @@ void generate_thumbnails( hecate_params& opt, vector<int>& v_thumb_idx )
         break;
       }
     }
-    
+
     // Save that thumbnail
     if( rank>=0 && rank<opt.njpg ) {
       resize( frm, frm, Size(), rsz_ratio, rsz_ratio, CV_INTER_LINEAR );
@@ -180,6 +180,11 @@ void generate_thumbnails( hecate_params& opt, vector<int>& v_thumb_idx )
       imwrite( strbuf, frm );
       njpg_cnt++;
     }
+
+    if (njpg_cnt >= opt.njpg) {
+        break;
+    }
+
     frm_idx++;
   }
   vr.release();
