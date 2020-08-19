@@ -14,6 +14,10 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+#if CV_MAJOR_VERSION > 2
+#include <opencv2/imgproc/types_c.h>
+#endif
+
 using namespace cv;
 using namespace std;
 

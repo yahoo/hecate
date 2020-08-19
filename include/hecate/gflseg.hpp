@@ -20,6 +20,10 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 
+#if CV_MAJOR_VERSION > 2
+#include <opencv2/core/core_c.h>
+#endif
+
 #include "hecate/sort.hpp"
 
 using namespace std;
