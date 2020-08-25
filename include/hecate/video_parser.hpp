@@ -39,6 +39,10 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+#if CV_MAJOR_VERSION > 3
+#include <opencv2/videoio/legacy/constants_c.h>
+#endif
+
 #include "hecate/sort.hpp"
 #include "hecate/gflseg.hpp"
 #include "hecate/gapstat.hpp"
